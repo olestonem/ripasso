@@ -1,0 +1,63 @@
+
+:root{
+  --ink:#18202d;--muted:#687386;--line:#dfe4ea;--bg:#f4f6f8;
+  --yellow:#fff1b9;--yellow-line:#f0cf61;--dark:#18202d;
+  --ok:#177245;--bad:#b43b3b;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);min-height:100vh}
+button{font:inherit}
+a{color:inherit}
+.shell{max-width:1480px;margin:0 auto;padding:28px 66px 72px;background:var(--bg);min-height:100vh}
+.sitebar{display:flex;align-items:center;justify-content:space-between;margin-bottom:56px}
+.brand{display:flex;align-items:center;gap:14px;font-size:27px;font-weight:850;color:#123fc5}
+.brandmark{width:52px;height:52px;border-radius:15px;background:#ffd83d;display:grid;place-items:center;font-size:29px;font-weight:900}
+.navlinks{display:flex;gap:12px}.navlink{padding:13px 21px;border:1px solid var(--line);background:#fff;border-radius:999px;font-weight:750;color:var(--muted);text-decoration:none}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border:1px solid var(--yellow-line);background:var(--yellow);border-radius:999px;font-weight:800}
+h1{font-size:clamp(52px,6vw,88px);line-height:.98;letter-spacing:-4px;margin:28px 0 20px}
+.subtitle{font-size:24px;color:var(--muted);margin:0 0 42px;font-weight:650}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{background:#fff;border:1px solid var(--line);border-radius:30px;padding:32px;min-height:278px;display:flex;flex-direction:column;cursor:pointer;transition:.18s;box-shadow:0 2px 0 rgba(24,32,45,.02);position:relative;padding-right:82px;text-decoration:none}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(24,32,45,.08)}
+.icon{width:70px;height:70px;border-radius:21px;background:var(--yellow);display:grid;place-items:center;font-size:34px;margin-bottom:28px}
+.card h2{font-size:30px;letter-spacing:-1px;margin:0 0 10px}.card p{font-size:20px;line-height:1.3;color:var(--muted);margin:0}
+.meta{margin-top:auto;padding-top:24px;font-size:17px;font-weight:750;color:var(--muted)}
+.arrow{position:absolute;right:26px;bottom:23px;width:50px;height:50px;border-radius:50%;background:var(--dark);color:#fff;display:grid;place-items:center;font-size:27px}
+
+.activity{max-width:1220px;margin:0 auto;padding:28px 66px 70px}
+.activity .sitebar{margin-bottom:58px}
+.activity-head{display:grid;grid-template-columns:1fr 250px;gap:30px;align-items:end;margin-bottom:28px}
+.activity-title h1{font-size:78px;margin:20px 0 10px}
+.activity-title p{font-size:23px;color:var(--muted);margin:0}
+.progress-wrap{align-self:end;margin-bottom:5px}
+.progress-label{text-align:right;font-weight:800;color:var(--muted);margin-bottom:12px}
+.progress{height:11px;background:#e8ebef;border-radius:999px;overflow:hidden}
+.progress-bar{height:100%;width:6.666%;background:var(--dark);border-radius:999px;transition:width .25s}
+
+.panel{background:#fff;border:1px solid var(--line);border-radius:34px;padding:42px 54px;box-shadow:0 12px 40px rgba(24,32,45,.05);min-height:600px}
+.panel-label{font-weight:800;color:var(--muted);font-size:18px;margin-bottom:28px}
+.prompt{font-size:30px;line-height:1.3;font-weight:760;margin:0 0 28px;max-width:900px}
+.context{background:#f6f7f9;border-radius:18px;padding:18px 20px;color:var(--muted);font-size:18px;margin-bottom:20px}
+.options{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.option{border:1px solid var(--line);background:#fff;border-radius:18px;padding:20px 22px;text-align:left;font-weight:700;font-size:19px;cursor:pointer;transition:.15s;min-height:70px}
+.option:hover{border-color:#aeb6c2;background:#fafafa}
+.option.correct{border-color:#66a886;background:#eaf7ef;color:var(--ok)}
+.option.wrong{border-color:#d98a8a;background:#fff0f0;color:var(--bad)}
+.feedback{margin-top:24px;padding:20px;border-radius:18px;background:#f7f8fa;display:none}
+.feedback.show{display:block}.feedback strong{display:block;font-size:19px;margin-bottom:8px}.feedback .example{margin-top:10px;color:var(--muted)}
+.navrow{display:flex;align-items:center;justify-content:space-between;margin-top:30px}
+.nav-arrow{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:15px;padding:14px 21px;font-weight:800;cursor:pointer;min-width:130px}
+.nav-arrow:disabled{opacity:.38;cursor:default}.nav-arrow.primary{background:var(--dark);color:#fff;border-color:var(--dark)}
+.word-answer{display:grid;grid-template-columns:1fr 1fr;gap:15px}.word-chip{border:1px solid var(--line);border-radius:18px;padding:20px;background:#fff;font-weight:750;font-size:20px;cursor:pointer}.word-chip.correct{background:#eaf7ef;border-color:#66a886;color:var(--ok)}.word-chip.wrong{background:#fff0f0;border-color:#d98a8a;color:var(--bad)}
+.visual{display:none}
+.flashcard{min-height:340px;display:grid;place-items:center;text-align:center;cursor:pointer;perspective:1200px}
+.flash-inner{width:100%;min-height:340px;position:relative;transition:transform .5s;transform-style:preserve-3d}
+.flashcard.flipped .flash-inner{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;border-radius:28px;border:1px dashed #d9dee5;background:#fff;display:flex;align-items:center;justify-content:center;padding:40px;flex-direction:column}
+.face.back{transform:rotateY(180deg);background:#fffdf3}
+.face .term{font-size:48px;font-weight:850;letter-spacing:-2px}
+.face .ua{font-size:30px;font-weight:800;margin-bottom:15px}.face .expl{font-size:19px;line-height:1.45;color:var(--muted);max-width:720px}
+.flashhint{text-align:center;color:var(--muted);font-weight:700;margin-top:16px}
+@media(max-width:1000px){.grid{grid-template-columns:1fr 1fr}.activity{padding:28px}.activity-head{grid-template-columns:1fr}.options,.word-answer{grid-template-columns:1fr}.progress-wrap{max-width:400px}.activity-title h1{font-size:58px}}
+@media(max-width:650px){.shell{padding:22px 20px}.sitebar{margin-bottom:38px}.navlinks{gap:5px}.navlink{padding:10px 13px;font-size:14px}.grid{grid-template-columns:1fr}.activity{padding:20px}.activity-title h1{font-size:48px}.panel{padding:28px 22px}.nav-arrow{min-width:auto;padding:12px 14px}.brand{font-size:20px}}
