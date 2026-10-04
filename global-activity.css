@@ -1,0 +1,367 @@
+/* =========================================================
+   GIOCHI DI ITALIANO — GLOBAL ACTIVITY UI
+   One visual system for every activity page.
+   ========================================================= */
+:root{
+  --ui-bg:#f4f5f7;
+  --ui-paper:#fff;
+  --ui-ink:#18202b;
+  --ui-muted:#687180;
+  --ui-line:#dfe3e8;
+}
+html,body{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif!important;
+  color:var(--ui-ink)!important;
+  background:var(--ui-bg)!important;
+  -webkit-font-smoothing:antialiased;
+}
+button,input,textarea,select{font-family:inherit!important}
+
+/* Same page width and vertical rhythm everywhere. */
+.activity,.page,.wrap{
+  width:min(1180px,calc(100% - 48px))!important;
+  max-width:none!important;
+  margin:0 auto!important;
+  padding:0 0 70px!important;
+}
+
+/* Same white navigation bar on every activity page. */
+.activity .sitebar,
+.page .topbar,
+.wrap .topnav{
+  width:100vw!important;
+  margin-left:calc((100% - 100vw)/2)!important;
+  margin-right:0!important;
+  height:72px!important;
+  min-height:72px!important;
+  padding:0 max(24px,calc((100vw - 1180px)/2))!important;
+  background:#fff!important;
+  border-bottom:1px solid var(--ui-line)!important;
+  box-shadow:0 1px 0 rgba(24,32,43,.02)!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  position:sticky!important;
+  top:0!important;
+  z-index:50!important;
+}
+.activity .sitebar .brand,
+.page .topbar .logo,
+.wrap .topnav .brand{
+  display:flex!important;
+  align-items:center!important;
+  gap:0!important;
+  margin:0!important;
+  font-size:21px!important;
+  line-height:1!important;
+  font-weight:800!important;
+  letter-spacing:-.035em!important;
+  color:var(--ui-ink)!important;
+}
+.page .topbar .logo-mark{display:none!important}
+.activity .navlinks,
+.page .topbar .nav,
+.wrap .topnav .nav{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  gap:8px!important;
+  margin-left:auto!important;
+}
+.activity .navlink,
+.page .topbar .nav a,
+.page .topbar .nav button,
+.wrap .topnav .nav a{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  min-height:40px!important;
+  padding:9px 14px!important;
+  border:1px solid transparent!important;
+  border-radius:999px!important;
+  background:transparent!important;
+  color:var(--ui-muted)!important;
+  font-size:14px!important;
+  line-height:1.1!important;
+  font-weight:700!important;
+  text-decoration:none!important;
+}
+.activity .navlink:hover,
+.page .topbar .nav a:hover,
+.page .topbar .nav button:hover,
+.wrap .topnav .nav a:hover{
+  background:#f0f2f5!important;
+  color:var(--ui-ink)!important;
+}
+
+/* Same content start after the header. */
+.activity-head,
+.page .head,
+.wrap .head{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) 210px!important;
+  align-items:end!important;
+  gap:30px!important;
+  margin:48px 0 28px!important;
+}
+.activity-title h1,
+.page .head h1,
+.wrap .head h1{
+  font-size:clamp(46px,5.4vw,68px)!important;
+  line-height:.95!important;
+  letter-spacing:-.06em!important;
+  font-weight:800!important;
+  margin:14px 0 10px!important;
+}
+.activity-title p,
+.page .head p,
+.wrap .head p{
+  margin:0!important;
+  color:var(--ui-muted)!important;
+  font-size:19px!important;
+  line-height:1.4!important;
+  font-weight:500!important;
+}
+.badge,.eyebrow{
+  font-size:12px!important;
+  line-height:1!important;
+  font-weight:800!important;
+  white-space:nowrap!important;
+  overflow:visible!important;
+}
+
+/* One compact progress indicator, always on the right and always ascending. */
+.progress-wrap,
+.page .progress,
+.wrap .progress{
+  width:230px!important;
+  min-width:230px!important;
+  justify-self:end!important;
+  text-align:right!important;
+  align-self:end!important;
+  color:var(--ui-muted)!important;
+  font-size:12px!important;
+  font-weight:800!important;
+  white-space:nowrap!important;
+  overflow:visible!important;
+}
+.progress-label,
+.page #progressText,
+.wrap #progressText{
+  display:block!important;
+  margin:0 0 8px!important;
+  color:var(--ui-muted)!important;
+  font-size:13px!important;
+  line-height:1!important;
+  font-weight:800!important;
+}
+.progress,
+.page .bar,
+.wrap .bar{
+  width:230px!important;
+  max-width:230px!important;
+  height:8px!important;
+  margin:0!important;
+  padding:0!important;
+  background:#e8ebef!important;
+  border-radius:999px!important;
+  overflow:hidden!important;
+  direction:ltr!important;
+}
+.progress-bar,
+.page .fill,
+.wrap .fill{
+  display:block!important;
+  height:100%!important;
+  min-width:0!important;
+  background:var(--ui-ink)!important;
+  border-radius:999px!important;
+  transition:width .25s ease!important;
+  transform:none!important;
+  transform-origin:left center!important;
+  direction:ltr!important;
+}
+
+/* Same activity card and typography. */
+.panel,
+.page .card#card,
+.wrap .card#card{
+  width:100%!important;
+  min-height:600px!important;
+  padding:44px 54px!important;
+  background:#fff!important;
+  border:1px solid var(--ui-line)!important;
+  border-radius:32px!important;
+  box-shadow:0 12px 40px rgba(24,32,45,.05)!important;
+}
+.panel-label,
+.type-label{
+  font-size:16px!important;
+  line-height:1.2!important;
+  font-weight:800!important;
+  color:var(--ui-muted)!important;
+  letter-spacing:0!important;
+  text-transform:uppercase!important;
+  margin-bottom:24px!important;
+}
+.prompt,
+.question{
+  font-size:32px!important;
+  line-height:1.22!important;
+  letter-spacing:-.025em!important;
+  font-weight:780!important;
+  max-width:980px!important;
+  margin:0 0 28px!important;
+}
+.options,.answers,.word-answer{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:15px!important;
+}
+.option,.answer,.word-chip{
+  min-height:70px!important;
+  padding:20px 22px!important;
+  border-radius:18px!important;
+  font-size:18px!important;
+  line-height:1.25!important;
+  font-weight:700!important;
+}
+.feedback{
+  font-size:17px!important;
+  line-height:1.5!important;
+}
+.navrow,.bottom{
+  margin-top:auto!important;
+  padding-top:30px!important;
+}
+.nav-arrow,.bottom button{
+  min-width:130px!important;
+  min-height:48px!important;
+  padding:13px 20px!important;
+  border-radius:14px!important;
+  font-size:14px!important;
+  font-weight:800!important;
+}
+
+/* Flashcards follow the same typography scale. */
+.flashcard,.flash-inner{min-height:440px!important}
+.face .term,.flash-front{font-size:48px!important;line-height:1.05!important}
+.face .ua,.flash-back .uk{font-size:28px!important;line-height:1.15!important}
+
+@media(max-width:760px){
+  .activity,.page,.wrap{width:min(100% - 30px,1180px)!important}
+  .activity .sitebar,.page .topbar,.wrap .topnav{
+    padding:0 15px!important;
+  }
+  .activity-head,.page .head,.wrap .head{
+    grid-template-columns:1fr!important;
+    gap:16px!important;
+    margin-top:32px!important;
+  }
+  .progress-wrap,.page .progress,.wrap .progress{
+    width:210px!important;
+    min-width:210px!important;
+    justify-self:start!important;
+    text-align:left!important;
+  }
+  .panel,.page .card#card,.wrap .card#card{padding:30px 22px!important;min-height:540px!important}
+  .prompt,.question{font-size:27px!important}
+  .options,.answers,.word-answer{grid-template-columns:1fr!important}
+}
+
+
+/* =========================================================
+   COMPATIBILITY FIX — keep progress container and progress bar
+   as separate elements for older activity templates.
+   These rules are additive and intentionally come last.
+   ========================================================= */
+.page .progress,
+.wrap .progress{
+  width:230px!important;
+  min-width:230px!important;
+  max-width:230px!important;
+  height:auto!important;
+  min-height:0!important;
+  margin:0!important;
+  padding:0!important;
+  background:transparent!important;
+  border-radius:0!important;
+  overflow:visible!important;
+  display:block!important;
+  box-sizing:border-box!important;
+  text-align:right!important;
+  color:var(--ui-muted)!important;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif!important;
+  font-size:12px!important;
+  font-weight:800!important;
+  line-height:1!important;
+}
+.page .progress > #progressText,
+.page .progress > span,
+.wrap .progress > span{
+  display:block!important;
+  width:auto!important;
+  min-width:0!important;
+  margin:0 0 8px!important;
+  padding:0!important;
+  color:var(--ui-muted)!important;
+  font-size:13px!important;
+  line-height:1!important;
+  font-weight:800!important;
+  white-space:nowrap!important;
+  text-align:right!important;
+}
+.page .progress > .bar,
+.wrap .progress > i{
+  display:block!important;
+  width:230px!important;
+  max-width:230px!important;
+  height:8px!important;
+  min-height:8px!important;
+  margin:0!important;
+  padding:0!important;
+  background:#e8ebef!important;
+  border-radius:999px!important;
+  overflow:hidden!important;
+  box-sizing:border-box!important;
+}
+.page .progress > .bar > .fill{
+  display:block!important;
+  height:100%!important;
+  min-height:100%!important;
+  margin:0!important;
+  padding:0!important;
+  background:var(--ui-ink)!important;
+  border-radius:999px!important;
+  transition:width .25s ease!important;
+  transform:none!important;
+}
+.wrap .progress > i{
+  position:relative!important;
+}
+.wrap .progress > i:before{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  left:0!important;
+  top:0!important;
+  width:var(--legacy-progress,0%)!important;
+  height:100%!important;
+  background:var(--ui-ink)!important;
+  border-radius:999px!important;
+}
+@media(max-width:760px){
+  .page .progress,.wrap .progress{
+    width:210px!important;
+    min-width:210px!important;
+    max-width:210px!important;
+  }
+  .page .progress > .bar,.wrap .progress > i{
+    width:210px!important;
+    max-width:210px!important;
+  }
+  .page .progress > #progressText,
+  .page .progress > span,
+  .wrap .progress > span{
+    font-size:12px!important;
+  }
+}
