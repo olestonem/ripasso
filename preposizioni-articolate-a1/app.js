@@ -1,0 +1,57 @@
+const BANKS={di:[],a:[],da:[],in:[],su:[],mixed:[]};
+function add(types,q,a,wrong,why){for(const type of types){const opts=[...new Set(wrong.filter(x=>x!==a))];BANKS[type].push([q,a,opts,why]);}}
+const items=[
+['di','Il quaderno ___ ragazzo è blu.','del',['al','dal','nel'],'Di + il = del: il quaderno del ragazzo.'],
+['di','La borsa ___ studentessa è qui.','della',['alla','dalla','nella'],'Di + la = della: la borsa della studentessa.'],
+['di','Il giocattolo ___ bambino è rotto.','del',['dello','dallo','sul'],'Di + il = del.'],
+['di','La casa ___ zio è grande.','dello',['del','dalla','nello'],'Di + lo = dello: lo zio.'],
+['di','Le finestre ___ edificio sono aperte.','dell’',['della','alle','nelle'],'Di + l’ = dell’: dell’edificio.'],
+['di','I libri ___ studenti sono sul tavolo.','degli',['dei','dalle','sugli'],'Di + gli = degli: gli studenti.'],
+['di','Le chiavi ___ macchina sono qui.','della',['del','alla','nella'],'Di + la = della: la macchina.'],
+['di','Il colore ___ pareti è bianco.','delle',['dei','alle','sulle'],'Di + le = delle: le pareti.'],
+['di','La porta ___ ufficio è chiusa.','dell’',['dello','alla','nello'],'Di + l’ = dell’: l’ufficio.'],
+['di','Il cane ___ vicini abbaia molto.','dei',['degli','dai','nei'],'Di + i = dei: i vicini.'],
+['a','Vado ___ supermercato.','al',['del','dal','nel'],'A + il = al: al supermercato.'],
+['a','Domani andiamo ___ stazione.','alla',['dalla','nella','della'],'A + la = alla: alla stazione.'],
+['a','Il professore parla ___ studenti.','agli',['ai','degli','negli'],'A + gli = agli: agli studenti.'],
+['a','Il treno arriva ___ aeroporti principali.','agli',['ai','dagli','negli'],'A + gli = agli: agli aeroporti.'],
+['a','Scrivo ___ mie amiche.','alle',['dalle','nelle','delle'],'A + le = alle: alle mie amiche.'],
+['a','Il bambino dà il disegno ___ maestra.','alla',['dalla','nella','della'],'A + la = alla: alla maestra.'],
+['a','Andiamo ___ cinema stasera.','al',['dal','nel','sul'],'A + il = al: al cinema.'],
+['a','Rispondo ___ insegnanti.','agli',['degli','dai','negli'],'A + gli = agli: agli insegnanti.'],
+['da','Esco ___ ufficio alle cinque.','dall’',['all’','nell’','sull’'],'Da + l’ = dall’: dall’ufficio.'],
+['da','Vengo ___ medico.','dal',['al','nel','sul'],'Da + il = dal: dal medico.'],
+['da','Torniamo ___ spiaggia.','dalla',['alla','nella','della'],'Da + la = dalla: dalla spiaggia.'],
+['da','Il regalo arriva ___ amici.','dagli',['agli','degli','negli'],'Da + gli = dagli: dagli amici.'],
+['da','Prendo le chiavi ___ cassetti.','dai',['ai','dei','nei'],'Da + i = dai: dai cassetti.'],
+['da','La ragazza esce ___ lezioni.','dalle',['alle','nelle','delle'],'Da + le = dalle: dalle lezioni.'],
+['da','Il rumore arriva ___ appartamento accanto.','dall’',['all’','nell’','sull’'],'Da + l’ = dall’: dall’appartamento.'],
+['da','Passo ___ zio dopo il lavoro.','dallo',['allo','dello','nello'],'Da + lo = dallo: dallo zio.'],
+['da','Rientro ___ negozi del centro.','dai',['ai','nei','dei'],'Da + i = dai: dai negozi.'],
+['da','Escono ___ università alle sei.','dall’',['all’','nell’','sull’'],'Da + l’ = dall’: dall’università.'],
+['in','Il gatto dorme ___ letto.','nel',['al','del','sul'],'In + il = nel: nel letto.'],
+['in','I bambini giocano ___ giardino.','nel',['al','del','sul'],'In + il = nel: nel giardino.'],
+['in','Le mele sono ___ cesta.','nella',['alla','dalla','sulla'],'In + la = nella: nella cesta.'],
+['in','Abito ___ stesso edificio.','nello',['dello','allo','sullo'],'In + lo = nello: nello stesso edificio.'],
+['in','I documenti sono ___ armadi.','negli',['agli','degli','sugli'],'In + gli = negli: negli armadi.'],
+['in','Ci sono molti libri ___ librerie.','nelle',['alle','dalle','sulle'],'In + le = nelle: nelle librerie.'],
+['in','La penna è ___ astuccio.','nell’',['all’','dall’','sull’'],'In + l’ = nell’: nell’astuccio.'],
+['in','Aspetto ___ corridoio.','nel',['al','del','sul'],'In + il = nel: nel corridoio.'],
+['in','La foto è ___ album.','nell’',['all’','dell’','sull’'],'In + l’ = nell’: nell’album.'],
+['in','I vestiti sono ___ cassetti.','nei',['ai','dei','sui'],'In + i = nei: nei cassetti.'],
+['su','Il telefono è ___ tavolo.','sul',['nel','dal','al'],'Su + il = sul: sul tavolo.'],
+['su','La giacca è ___ sedia.','sulla',['nella','dalla','alla'],'Su + la = sulla: sulla sedia.'],
+['su','Il quadro è ___ muro.','sul',['nel','dal','al'],'Su + il = sul: sul muro.'],
+['su','I libri sono ___ scaffali.','sugli',['negli','degli','agli'],'Su + gli = sugli: sugli scaffali.'],
+['su','Le scarpe sono ___ scatole.','nelle',['sulle','dalle','alle'],'Su + le = sulle: sulle scatole.'],
+['su','Il gatto è ___ divano.','sul',['nel','dal','al'],'Su + il = sul: sul divano.'],
+['su','La notizia è ___ giornale.','sul',['nel','del','al'],'Su + il = sul: sul giornale.'],
+['su','Ci sono macchie ___ pareti.','sulle',['nelle','dalle','alle'],'Su + le = sulle: sulle pareti.'],
+['su','Il cappello è ___ armadio.','sull’',['nell’','dall’','all’'],'Su + l’ = sull’: sull’armadio.'],
+['su','I bambini sono ___ alberi?','sugli',['negli','degli','agli'],'Su + gli = sugli: sugli alberi.']
+];
+for(const [type,q,a,w,why] of items)add([type,'mixed'],q,a,w,why);
+// Add context-preserving variants so each category has a robust random pool.
+for(let round=0;round<3;round++){for(const [type,q,a,w,why] of items){if(type==='di'||type==='a'||type==='da'||type==='in'||type==='su'){const promptVariants=[q.replace(/^Il /,'Oggi il '),q.replace(/^La /,'Oggi la '),q];add([type,'mixed'],promptVariants[round%promptVariants.length],a,w,why);}}}
+const LABELS={di:['DI + articolo','Обери форму di + означений артикль, узгоджену з іменником.'],a:['A + articolo','Обери форму a + означений артикль відповідно до іменника та значення речення.'],da:['DA + articolo','Обери форму da + означений артикль відповідно до іменника.'],in:['IN + articolo','Обери форму in + означений артикль відповідно до іменника.'],su:['SU + articolo','Обери форму su + означений артикль відповідно до іменника.'],mixed:['Ripasso finale','Визнач прийменник і артикль за контекстом та іменником.']};
+const $=id=>document.getElementById(id);const shuffle=list=>{const a=[...list];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};const params=new URLSearchParams(location.search);const type=params.get('type')||'mixed';const bank=BANKS[type]||BANKS.mixed;const TOTAL=15;let questions=shuffle(bank).slice(0,TOTAL).map(([prompt,correct,wrong,why])=>({prompt,correct,options:shuffle([correct,...shuffle(wrong.filter(x=>x!==correct)).slice(0,3)]),why}));let index=0,score=0,answered=false;const label=LABELS[type]||LABELS.mixed;$('eyebrow').textContent='Preposizioni articolate · A1';$('title').textContent=label[0];$('subtitle').textContent=label[1];$('typeLabel').textContent=label[0];function escapeHTML(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}function render(){answered=false;$('feedback').className='feedback';$('feedback').innerHTML='';$('progressText').textContent=`${index+1} / ${TOTAL}`;$('fill').style.width=`${(index+1)/TOTAL*100}%`;const item=questions[index];$('prev').disabled=index===0;$('next').textContent=index===TOTAL-1?'Завершити':'Avanti →';$('content').innerHTML=`<div class="question">${item.prompt}</div><div class="answers">${item.options.map(o=>`<button class="answer" type="button" data-answer="${escapeHTML(o)}">${o}</button>`).join('')}</div>`;document.querySelectorAll('.answer').forEach(btn=>btn.addEventListener('click',()=>answer(item,btn)));}function answer(item,btn){if(answered)return;answered=true;const chosen=btn.dataset.answer;const ok=chosen===item.correct;if(ok)score++;document.querySelectorAll('.answer').forEach(b=>{b.disabled=true;if(b.dataset.answer===item.correct)b.classList.add('correct')});if(!ok)btn.classList.add('wrong');$('feedback').className=`feedback show ${ok?'good':'bad'}`;$('feedback').innerHTML=`<strong>${ok?'✓ Правильно!':'✕ Неправильно'}</strong><div>${item.why}</div>`;}$('prev').addEventListener('click',()=>{if(index>0){index--;render()}});$('next').addEventListener('click',()=>{if(!answered){$('feedback').className='feedback show bad';$('feedback').innerHTML='<strong>Спочатку обери відповідь.</strong>';return}if(index<TOTAL-1){index++;render()}else finish()});function finish(){$('card').style.display='none';$('end').classList.add('show');$('score').textContent=`Правильних відповідей: ${score} із ${TOTAL}.`;$('summary').innerHTML=`<p>${score>=12?'Чудово! Продовжуй так само.':score>=8?'Добре! Повтори пояснення до помилок.':'Перечитай правило та спробуй ще раз.'}</p><button class="retry" id="retry">Спробувати ще раз</button>`;$('retry').addEventListener('click',()=>location.reload())}render();

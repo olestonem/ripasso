@@ -1,0 +1,92 @@
+const BANKS={evento:[],abitudine:[],descrizione:[],interruzione:[],contesto:[],mixed:[]};
+const rows={
+evento:[
+['Ieri ___ un nuovo libro.','ho comprato','compravo','compro','avevo comprato','Un acquisto concluso e collocato in un momento preciso: passato prossimo.'],
+['La settimana scorsa ___ a Roma per due giorni.','sono andato','andavo','vado','ero andato','Un viaggio delimitato e concluso si racconta normalmente al passato prossimo.'],
+['Stamattina ___ il treno per un minuto.','ho perso','perdevo','perdo','avevo perso','È un evento specifico e concluso: ho perso.'],
+['Ieri sera noi ___ una pizza e poi siamo tornati a casa.','abbiamo mangiato','mangiavamo','mangiamo','avevamo mangiato','La frase presenta un evento concluso nella sequenza del racconto.'],
+['Due giorni fa Marta ___ un esame importante.','ha sostenuto','sosteneva','sostiene','aveva sostenuto','Un evento specifico e concluso richiede il passato prossimo.'],
+['A un tratto, il cane ___ ad abbaiare.','ha cominciato','cominciava','comincia','aveva cominciato','“A un tratto” segnala l’inizio improvviso di un evento.'],
+['Ieri ___ una lettera alla mia amica.','ho scritto','scrivevo','scrivo','avevo scritto','L’azione è presentata come completata.'],
+['Alla fine della festa, tutti ___ a casa.','sono tornati','tornavano','tornano','erano tornati','Il ritorno è un evento concluso.'],
+['Il mese scorso ___ un corso di italiano.','ho iniziato','iniziavo','inizio','avevo iniziato','Un inizio avvenuto in un periodo definito è un evento concluso.'],
+['Quando è arrivato il bus, noi ___ subito.','siamo saliti','salivamo','saliamo','eravamo saliti','L’azione di salire è un evento specifico e concluso.'],
+['Ieri pomeriggio Luca ___ le chiavi.','ha trovato','trovava','trova','aveva trovato','Trovare è qui un evento puntuale e concluso.'],
+['Domenica scorsa ___ un museo interessante.','abbiamo visitato','visitavamo','visitiamo','avevamo visitato','La visita è presentata come un’esperienza conclusa.'],
+['La lezione ___ alle cinque.','è finita','finiva','finisce','era finita','La conclusione della lezione è un evento delimitato.'],
+['Ieri sera non ___ uscire perché ero stanco.','sono potuto','potevo','posso','ero potuto','Nel contesto, si presenta una situazione specifica di ieri come fatto concluso.'],
+['Alla fine, Giulia ___ la risposta corretta.','ha scelto','sceglieva','sceglie','aveva scelto','La scelta è un evento concluso nel racconto.']
+],
+abitudine:[
+['Da bambino, ogni estate ___ al mare.','andavo','sono andato','vado','ero andato','“Ogni estate” indica un’abitudine ripetuta: imperfetto.'],
+['Quando vivevamo in campagna, ___ spesso a piedi.','camminavamo','abbiamo camminato','camminiamo','siamo camminati','“Spesso” segnala una consuetudine nel passato.'],
+['Da piccola, Anna ___ sempre con le bambole.','giocava','ha giocato','gioca','aveva giocato','Un’azione abituale nell’infanzia si esprime con l’imperfetto.'],
+['Ogni domenica mio nonno ___ il pranzo.','preparava','ha preparato','prepara','aveva preparato','“Ogni domenica” descrive una routine passata.'],
+['Quando ero studente, ___ l’autobus per andare all’università.','prendevo','ho preso','prendo','avevo preso','L’imperfetto esprime un’abitudine nel periodo degli studi.'],
+['D’estate, noi ___ fino a tardi.','dormivamo','abbiamo dormito','dormiamo','siamo dormiti','Si tratta di una routine ripetuta.'],
+['Prima, i miei amici ___ spesso a casa mia.','venivano','sono venuti','vengono','erano venuti','“Spesso” indica visite abituali nel passato.'],
+['Quando lavoravo in centro, ___ in pausa con i colleghi.','pranzavo','ho pranzato','pranzo','avevo pranzato','La frase descrive una consuetudine lavorativa.'],
+['Da ragazzi, voi ___ molto a pallavolo.','giocavate','avete giocato','giocate','avevate giocato','L’imperfetto indica un’attività praticata abitualmente.'],
+['Ogni mattina mia madre ___ il caffè.','beveva','ha bevuto','beve','aveva bevuto','“Ogni mattina” segnala ripetizione.'],
+['Quando abitavo a Torino, ___ spesso in bicicletta.','andavo','sono andato','vado','ero andato','L’imperfetto descrive un’abitudine durante un periodo passato.'],
+['Da bambini, non ___ mai la televisione durante i pasti.','guardavamo','abbiamo guardato','guardiamo','avevamo guardato','“Mai” qui descrive una consuetudine negativa.'],
+['Prima di trasferirsi, Sara ___ vicino alla stazione.','abitava','ha abitato','abita','era abitata','L’imperfetto descrive una situazione che durava nel passato.'],
+['Durante le vacanze, loro ___ ogni sera in piazza.','passeggiavano','hanno passeggiato','passeggiano','erano passeggiati','“Ogni sera” indica un’azione ripetuta.'],
+['Quando eravamo piccoli, ___ spesso dai nonni.','restavamo','siamo restati','restiamo','eravamo restati','Il contesto descrive una routine dell’infanzia.']
+],
+descrizione:[
+['Da bambina, Laura ___ molto timida.','era','è stata','è','aveva stato','L’imperfetto descrive una caratteristica personale nel passato.'],
+['La casa dei nonni ___ grande e luminosa.','era','è stata','è','aveva stata','Si descrive com’era la casa.'],
+['Quando siamo usciti, ___ freddo.','faceva','ha fatto','fa','aveva fatto','L’imperfetto crea lo sfondo atmosferico della scena.'],
+['Marco ___ gli occhi verdi e i capelli scuri.','aveva','ha avuto','era','è stato','Avere si usa per descrivere caratteristiche fisiche.'],
+['La strada ___ deserta e silenziosa.','era','è stata','aveva','è','La frase descrive lo scenario nel passato.'],
+['Quando ero piccolo, ___ paura dei temporali.','avevo','ho avuto','ero','sono stato','Un sentimento o stato nel passato si esprime spesso con l’imperfetto.'],
+['Il ristorante ___ vicino alla stazione.','era','è stato','aveva','è','L’imperfetto descrive la posizione del luogo.'],
+['Mentre aspettavamo, il cielo ___ grigio.','era','è stato','aveva','è','È una descrizione dello sfondo.'],
+['I bambini ___ stanchi dopo la gita.','erano','sono stati','avevano','sono','L’imperfetto descrive la condizione dei bambini in quel momento.'],
+['La stanza ___ due finestre e un balcone.','aveva','era','ha avuto','è stata','Avere indica le caratteristiche della stanza.'],
+['Quando vivevo lì, il quartiere ___ tranquillo.','era','è stato','aveva','è','L’imperfetto descrive una situazione duratura.'],
+['A quell’ora, il negozio ___ ancora chiuso.','era','è stato','aveva','è','Si descrive lo stato del negozio in un momento passato.'],
+['La musica ___ così alta che non riuscivamo a parlare.','era','è stata','aveva','è','L’imperfetto presenta la condizione di sottofondo.'],
+['Mia nonna ___ sempre molto paziente.','era','è stata','aveva','è','Una qualità abituale nel passato si esprime con l’imperfetto.'],
+['Quando siamo arrivati, tutti ___ già pronti.','erano','sono stati','avevano','sono','La frase descrive la situazione esistente al nostro arrivo.']
+],
+interruzione:[
+['Mentre ___, è suonato il telefono.','studiavo','ho studiato','studio','avevo studiato','Studiare era in corso; lo squillo è l’evento che interrompe la scena.'],
+['Mentre cucinavo, Marco ___.','è arrivato','arrivava','arriva','era arrivato','L’arrivo è un evento concluso che avviene durante un’azione in corso.'],
+['Dormivo quando qualcuno ___ alla porta.','ha bussato','bussava','bussa','aveva bussato','Bussare è l’evento specifico; dormivo descrive lo sfondo.'],
+['Mentre tornavamo a casa, ___ a piovere.','ha cominciato','cominciava','comincia','aveva cominciato','L’inizio della pioggia è presentato come evento che interrompe il tragitto.'],
+['Luca ___ la doccia quando è mancata la corrente.','faceva','ha fatto','fa','aveva fatto','Fare la doccia era un’azione in corso.'],
+['Mentre aspettavo l’autobus, ___ una vecchia amica.','ho incontrato','incontravo','incontro','avevo incontrato','L’incontro è un evento puntuale durante l’attesa.'],
+['I bambini giocavano in giardino quando ___ a nevicare.','ha iniziato','iniziava','inizia','aveva iniziato','La nevicata inizia come evento specifico; giocavano è lo sfondo.'],
+['Mentre parlavamo, il professore ___.','è entrato','entrava','entra','era entrato','L’ingresso è un evento concluso durante la conversazione.'],
+['Io leggevo quando mia sorella ___ nella stanza.','è entrata','entrava','entra','era entrata','Entrare è l’evento che avviene mentre leggevo.'],
+['Mentre guidava, Paolo ___ un rumore strano.','ha sentito','sentiva','sente','aveva sentito','Sentire qui è un evento specifico che si verifica durante la guida.'],
+['Stavamo cenando quando ___ la luce.','è andata via','andava via','va via','era andata via','L’interruzione della luce è un evento improvviso e concluso.'],
+['Mentre facevo la spesa, ___ il mio insegnante.','ho visto','vedevo','vedo','avevo visto','Vedere l’insegnante è un evento specifico durante un’attività in corso.'],
+['Marta camminava quando ___ il suo nome.','ha sentito','sentiva','sente','aveva sentito','L’evento specifico è sentire il proprio nome.'],
+['Mentre guardavamo il film, qualcuno ___.','ha telefonato','telefonava','telefona','aveva telefonato','La telefonata è un evento concluso durante la visione.'],
+['Preparavo la cena quando il coltello ___.','è caduto','cadeva','cade','era caduto','La caduta è un evento puntuale; preparavo descrive l’azione in corso.']
+],
+contesto:[
+['Ieri ___ al mercato e ho comprato le mele.','sono andata','andavo','vado','ero andata','Un’uscita specifica di ieri con un risultato concreto: passato prossimo.'],
+['Quando abitavo a Firenze, ___ ogni giorno lungo l’Arno.','camminavo','ho camminato','cammino','avevo camminato','La routine quotidiana nel passato richiede l’imperfetto.'],
+['La festa ___ molto bella: c’erano tanti amici.','è stata','era','è','aveva stata','Qui la festa è presentata come evento concluso e valutato nel suo insieme.'],
+['Da piccolo, Paolo ___ un cane che si chiamava Rex.','aveva','ha avuto','ha','è stato','Avere descrive una situazione durante l’infanzia.'],
+['Sabato scorso ___ un film italiano al cinema.','abbiamo visto','vedevamo','vediamo','avevamo visto','La visione è un’esperienza conclusa in un momento definito.'],
+['Quando siamo entrati, gli ospiti ___ già a tavola.','erano','sono stati','furono','avevano stato','L’imperfetto descrive la situazione già in corso al nostro ingresso.'],
+['Prima non mi piaceva il caffè, ma un giorno ___ a berlo.','ho cominciato','cominciavo','comincio','avevo cominciato','“Un giorno” presenta un cambiamento puntuale e concluso.'],
+['Ogni volta che ___, prendevo un ombrello.','pioveva','ha piovuto','piove','era piovuto','“Ogni volta” indica una situazione ripetuta.'],
+['Ieri mentre facevo colazione, ___ una notizia interessante.','ho letto','leggevo','leggo','avevo letto','Leggere la notizia è un evento specifico durante la colazione.'],
+['La città ___ più piccola e meno trafficata di oggi.','era','è stata','è','aveva','Si confronta una situazione passata con quella presente.'],
+['Quando è arrivata la chiamata, noi ___ ancora in ufficio.','eravamo','siamo stati','fummo','abbiamo stato','L’imperfetto descrive dove ci trovavamo in quel momento.'],
+['L’anno scorso ___ in Sicilia e ho visitato Palermo.','sono stato','stavo','ero','sono','Il soggiorno è un’esperienza delimitata e conclusa.'],
+['Mentre Sara studiava, suo fratello ___ musica ad alto volume.','ascoltava','ha ascoltato','ascolta','aveva ascoltato','Le due azioni erano contemporanee e in corso.'],
+['Ieri non ___ venire perché avevo un appuntamento.','sono potuto','potevo','posso','ero potuto','La frase racconta un fatto specifico di ieri: non sono potuto venire.'],
+['Quando ero adolescente, ___ spesso i concerti con gli amici.','frequentavo','ho frequentato','frequento','avevo frequentato','“Spesso” indica un’abitudine nel passato.']
+],
+mixed:[]
+};
+BANKS.evento=rows.evento;BANKS.abitudine=rows.abitudine;BANKS.descrizione=rows.descrizione;BANKS.interruzione=rows.interruzione;BANKS.contesto=rows.contesto;BANKS.mixed=[...rows.evento.slice(0,5),...rows.abitudine.slice(0,5),...rows.descrizione.slice(0,5),...rows.interruzione.slice(0,5),...rows.contesto.slice(0,5)];
+const LABELS={evento:['Eventi conclusi','Обери passato prossimo для завершених подій у конкретному контексті.'],abitudine:['Abitudini nel passato','Розпізнавай повторювані дії та звички: зазвичай imperfetto.'],descrizione:['Descrizioni e stati','Використовуй imperfetto для описів, станів і фонової ситуації.'],interruzione:['Mentre… è successo','Розрізняй дію в процесі та подію, що її перервала.'],contesto:['Scegli in base al contesto','Обери час відповідно до значення всього речення.'],mixed:['Ripasso finale','Перевір різні вживання passato prossimo та imperfetto.']};
+const $=id=>document.getElementById(id);const shuffle=list=>{const a=[...list];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};const params=new URLSearchParams(location.search);const type=params.get('type')||'mixed';const bank=BANKS[type]||BANKS.mixed;const TOTAL=15;let questions=shuffle(bank).slice(0,TOTAL).map(r=>({prompt:r[0],correct:r[1],options:shuffle([r[1],r[2],r[3],r[4]]),why:r[5]}));let index=0,score=0,answered=false;const label=LABELS[type]||LABELS.mixed;$('eyebrow').textContent='Passato prossimo vs imperfetto · A2';document.title='Attività · Passato prossimo vs imperfetto';$('title').textContent=label[0];$('subtitle').textContent=label[1];$('typeLabel').textContent=label[0];function escapeHTML(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}function render(){answered=false;$('feedback').className='feedback';$('feedback').innerHTML='';$('progressText').textContent=`${index+1} / ${TOTAL}`;$('fill').style.width=`${(index+1)/TOTAL*100}%`;const item=questions[index];$('prev').disabled=index===0;$('next').textContent=index===TOTAL-1?'Завершити':'Avanti →';$('content').innerHTML=`<div class="question">${item.prompt}</div><div class="answers">${item.options.map(o=>`<button class="answer" type="button" data-answer="${escapeHTML(o)}">${o}</button>`).join('')}</div>`;document.querySelectorAll('.answer').forEach(btn=>btn.addEventListener('click',()=>answer(item,btn)));}function answer(item,btn){if(answered)return;answered=true;const ok=btn.dataset.answer===item.correct;if(ok)score++;document.querySelectorAll('.answer').forEach(b=>{b.disabled=true;if(b.dataset.answer===item.correct)b.classList.add('correct')});if(!ok)btn.classList.add('wrong');$('feedback').className=`feedback show ${ok?'good':'bad'}`;$('feedback').innerHTML=`<strong>${ok?'✓ Правильно!':'✕ Неправильно'}</strong><div>${item.why}</div>`;}$('prev').addEventListener('click',()=>{if(index>0){index--;render()}});$('next').addEventListener('click',()=>{if(!answered){$('feedback').className='feedback show bad';$('feedback').innerHTML='<strong>Спочатку обери відповідь.</strong>';return}if(index<TOTAL-1){index++;render()}else finish()});function finish(){$('card').style.display='none';$('end').classList.add('show');$('score').textContent=`Правильних відповідей: ${score} із ${TOTAL}.`;$('summary').innerHTML=`<p>${score>=12?'Чудово! Продовжуй так само.':score>=8?'Добре! Повтори пояснення до помилок.':'Перечитай правило та спробуй ще раз.'}</p><button class="retry" id="retry">Спробувати ще раз</button>`;$('retry').addEventListener('click',()=>location.reload())}render();
